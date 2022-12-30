@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <title>When Bored</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: sans-serif;
+        background-color: #F5F5F5;
+      }
+      img {
+        width: 300px;
+        height: 300px;
+        margin-top: 50px;
+      }
+      button {
+        font-size: 18px;
+        padding: 20px;
+        margin-top: 50px;
+      }
+      #decision {
+        font-size: 24px;
+        margin-top: 50px;
+        display: none;
+      }
+      .decision-child {
+        font-size: 24px;
+        margin-top: 50px;
+      }
+      #loading {
+        font-size: 24px;
+        margin-top: 50px;
+        display: none;
+      }
+      /* Center the text in the middle of the screen and make it 50% wide of the screen */
+      #decisionDescription{
+        text-align: left;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Let Mittens Entertain You When You Are Bored</h1>
+    <img src="https://raw.githubusercontent.com/Zerg00s/images/main/Mittens.png" alt="Mittens the cat">
+    <br>
+    <button id="button">Entertain me!</button>
+    <div id="loading">Loading...</div>
+    <div id="decision">
+      <h1 id="decisionTitle" class="decision-child"></h1>
+      <div id="decisionDescription" class="decision-child"></div>
+      <div class="decision-child">
+        <a href="#" id="decisionHyperlink">Learn more</a>
+      </div>
+    </div>
+<script>
+  const button = document.getElementById("button");
+  const decision = document.getElementById("decision");
+  const decisionTitle = document.getElementById("decisionTitle");
+  const decisionDescription = document.getElementById("decisionDescription");
+  const decisionHyperlink = document.getElementById("decisionHyperlink");
+
+  const loading = document.getElementById("loading");
+
+  const decisions = [
+    {title:"Go for a walk", hyperlink:"", description:`Going for a walk can be a good way to alleviate boredom for several reasons:
+Exercise: Walking is a form of physical activity that can help improve your mood and reduce feelings of boredom by releasing endorphins, which are chemicals that act as natural mood-boosters.
+Change of scenery: A change of scenery can be refreshing and can help break up the monotony of your day. Going for a walk allows you to see new things and experience your environment in a different way.
+Social interaction: Walking with someone else can provide an opportunity for social interaction and can be a enjoyable way to pass the time.
+Relaxation: Walking can be a relaxing and meditative activity that allows you to clear your mind and de-stress.
+Overall, going for a walk can be a simple yet effective way to alleviate boredom and improve your overall well-being.`},
+    {title:"Meditate", hyperlink:"", description:""},
+    {title:"Close all browser tabs", hyperlink:"", description:""},
+    {title:"Clean your notes", hyperlink:"", description:""},
+    {title:"Watch a show", hyperlink:"", description:""},
+    {title:"Read a book", hyperlink:"", description:""},
+    {title:"Clean and organize your desk", hyperlink:"", description:""},
+    {title:"Listen to an audio book", hyperlink:"", description:""},
+    {title:"Call a friend", hyperlink:"", description:""},
+    {title:"Message a friend", hyperlink:"", description:""},
+    {title:"Write in a journal", hyperlink:"", description:""},
+    {title:"Listen to music", hyperlink:"", description:""},
+    {title:"Do some stretching", hyperlink:"", description:""}
+  ];
+
+  button.addEventListener("click", function() {
+    // Show the loading animation
+    loading.style.display = "block";
+    decision.style.display = "none";
+    button.style.display = "none";
+
+    // Pick a random decision after 2 seconds
+    setTimeout(function() {
+      // Hide the loading animation
+      loading.style.display = "none";
+
+      // Show the decision
+      decision.style.display = "block";
+      const randomDecision = decisions[Math.floor(Math.random() * decisions.length)];
+      console.log(randomDecision);
+      
+      decisionTitle.textContent = randomDecision.title;
+      decisionDescription.textContent = randomDecision.description;
+
+
+      button.style.display = "inline";
+    }, 200);
+  });
+</script>
+
+<br><br><br>
+	  
+</body>
+</html>    
